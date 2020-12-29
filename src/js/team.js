@@ -4,7 +4,8 @@ export default class Team {
   }
 
   add(obj) {
-    if (this.members.has(obj) === false) {
+    //if (this.members.has(obj) === false)
+    if (!this.members.has(obj)) {
       this.members.add(obj);
     } else throw new Error('Этот персонаж уже есть в команде!');
   }
