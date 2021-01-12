@@ -1,14 +1,6 @@
-import Character from './character';
-import Team from './team';
+// TODO: write your code here
+import sum from './basic';
 
-const Bowerman = new Character('Bob');
-const Swordsman = new Character('Sam');
-const Magician = new Character('Maggy');
+console.log('worked');
 
-const Ateam = new Team();
-
-Ateam.add(Bowerman);
-Ateam.add(Swordsman);
-Ateam.add(Magician);
-
-Ateam.addAll(Bowerman, Swordsman, Magician, Bowerman);
+console.log(sum([1, 2]));
