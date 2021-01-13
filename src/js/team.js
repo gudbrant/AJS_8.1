@@ -4,21 +4,26 @@ export default class Team {
   }
 
   add(obj) {
-    //if (this.members.has(obj) === false)
-    if (!this.members.has(obj)) {
-      this.members.add(obj);
-    } else throw new Error('Этот персонаж уже есть в команде!');
-  }
-
-  addAll(...allCharacters) {
-    for (let i = 0; i < allCharacters.length; i += 1) {
-      if (this.members.has(allCharacters[i]) === false) {
-        this.members.add(allCharacters[i]);
+    for (const value of this.members) {
+      for (const key in obj) {
+        if (Object.hasOwnProperty.call(obj, key)) {
+          if (value[key] === obj[key]) {
+            throw new Error('Персонаж уже добавлен');
+          }
+        }
       }
     }
+    return this.members.add(obj);
+  }
+
+  addAll(array) {
+    array.forEach((item) => {
+      this.members.add(item);
+    });
+    return this.members;
   }
 
   toArray() {
-    this.members = Array.from(this.members);
+    return Array.from(this.members);
   }
 }
